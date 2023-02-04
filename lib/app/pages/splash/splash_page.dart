@@ -1,52 +1,43 @@
-import 'package:dart_week_app/app/core/config/env/env.dart';
 import 'package:dart_week_app/app/core/ui/Helpers/size_extensions.dart';
-import 'package:dart_week_app/app/core/ui/styles/app_styles.dart';
-import 'package:dart_week_app/app/core/ui/styles/colors_app.dart';
 import 'package:dart_week_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Splash'),
-      ),
-      body: Column(
-        children: [
-          Container(),
-          DeliveryButton(
-            width: 200,
-            height: 50,
-            label: Env.i['backend_base_url'] ?? '',
-            onPressed: () {},
-          ),
-          Text(context.screenWidth.toString()),
-          Row(
-            children: [
-              Container(
-                color: Colors.blue,
-                width: context.percentWith(.6),
-                height: 50,
+      body: ColoredBox(
+        color: const Color(0XFF140E0E),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: context.screenHeight,
+                child: Image.asset(
+                  'assets/images/lanche.png',
+                  fit: BoxFit.cover,
+                ),
               ),
-              Container(
-                color: Colors.black,
-                width: context.percentWith(.4),
-                height: 50,
+            ),
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: context.percentHeight(.30),
+                  ),
+                  Image.asset('assets/images/logo.png'),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  DeliveryButton(label: 'Acessar', onPressed: () {})
+                ],
               ),
-            ],
-          ),
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Text'),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
