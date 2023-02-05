@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:dart_week_app/app/pages/home/home_controller.dart';
 import 'package:dart_week_app/app/pages/home/home_page.dart';
 import 'package:dart_week_app/app/repositories/products/products_respository.dart';
